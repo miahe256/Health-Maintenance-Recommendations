@@ -11,13 +11,42 @@
 - 从 CSV 文件加载数据
 - 数据清理：去除空值行
 
+## 系统要求
+
+- Python 3.7+
+- 支持中文显示的操作系统（用于可视化）
+
 ## 安装说明
 
-1. 克隆项目到本地
-2. 安装依赖包：
+1. 克隆项目到本地：
+```bash
+git clone <repository_url>
+cd Health-Maintenance-Recommendations
+```
+
+2. 创建并激活虚拟环境（推荐）：
+
+Windows:
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+Linux/Mac:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+3. 安装依赖包：
 ```bash
 pip install -r requirements.txt
 ```
+
+4. 安装中文字体（如果需要显示中文图表）：
+   - Windows: 一般已预装 SimHei 字体
+   - Linux: `sudo apt-get install fonts-wqy-microhei`
+   - Mac: 从网上下载并安装 SimHei 字体
 
 ## 使用方法
 
@@ -27,11 +56,24 @@ pip install -r requirements.txt
 ```bash
 python health_maintenance_recommendations.py
 ```
+
 该程序会自动：
-1. 从指定的 CSV 文件加载数据 (`health maintenance recommendations.csv`)。
-2. 进行数据探索和清理。
-3. 基于数据中的第一个项目进行推荐。
-4. 分析描述中的高频词（默认 1-gram）并显示图表。
+1. 从指定的 CSV 文件加载数据 (`health maintenance recommendations.csv`)
+2. 进行数据探索和清理
+3. 基于数据中的第一个项目进行推荐
+4. 分析描述中的高频词（默认 1-gram）并显示图表
+
+### 常见问题解决
+
+1. 如果遇到中文显示问题：
+   - 确保系统已安装中文字体
+   - 检查 matplotlib 配置
+   - 尝试使用不同的中文字体，如 'Microsoft YaHei'
+
+2. 如果遇到内存问题：
+   - 减小数据集大小
+   - 调整 n-gram 范围
+   - 增加系统虚拟内存
 
 **如何修改测试推荐的文章标题？**
 
@@ -86,9 +128,8 @@ test_item_title = "你想要测试的具体文章标题"
 - `health_maintenance_recommendations.py`: 主程序文件，包含核心逻辑和函数
 - `requirements.txt`: 依赖包列表
 - `README.md`: 项目说明文档
+- `health maintenance recommendations.csv`: 示例数据文件
 
-## 系统要求
+## 贡献指南
 
-- Python 3.7+
-- 依赖库 (pandas, scikit-learn, matplotlib, numpy, jieba)
-- 支持中文显示的操作系统（用于可视化） 
+欢迎提交 Issue 和 Pull Request 来帮助改进这个项目。 

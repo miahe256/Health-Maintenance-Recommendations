@@ -266,7 +266,7 @@ def create_health_recommendations(data_df):
 # 示例使用
 if __name__ == "__main__":
     # 定义CSV文件路径
-    csv_file_path = r'E:\知乎-AIGC-工程师\1.主干课\@4.14-Embeddings和向量数据库\3.作业\Health Maintenance Recommendations\health maintenance recommendations.csv'
+    csv_file_path = r'E:\知乎-AIGC-工程师\1.主干课\@4.14-Embeddings和向量数据库\3.作业\Health-Maintenance-Recommendations\health maintenance recommendations.csv'
     
     df = None  # 初始化df为None
     try:
@@ -329,7 +329,7 @@ if __name__ == "__main__":
     
     # 获取数据中的第一个文章标题用于测试推荐
     if not df_cleaned.empty:
-        test_item_title = df_cleaned['文章标题'].iloc[1]
+        test_item_title = df_cleaned['文章标题'].iloc[5]
         print(f"\n基于'{test_item_title}'的推荐：")
         recommendations = recommend_health(test_item_title)
         if recommendations:
